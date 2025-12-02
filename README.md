@@ -50,7 +50,7 @@ Follow these steps to run the project locally on your machine.
 ````bash
 git clone https://github.com/AbhishekGupta2412/Meatech
 cd Meatech
-
+````
 ### 2. Backend Setup
 ```bash
 cd backend
@@ -65,7 +65,7 @@ npx prisma migrate dev --name init
 
 # Start Server
 npm run dev
-
+```
 ### 3. Frontend Setup
 ```bash
 cd frontend
@@ -73,16 +73,16 @@ npm install
 
 # Start Frontend
 npm run dev
-
+```
 ### Running Tests
 
 Frontend tests:
 ```bash
 cd frontend
 npm test
-
+```
 Backend tests:
 ```bash
 cd backend
 npx jest
-````
+```
