@@ -42,13 +42,6 @@ const Dashboard = () => {
   const cancelAddTask = () => {
     setShowPop(false);
   };
-  
-  const addTask = async () => {
-    if (!title) return;
-    await api.post("/tasks", { title, status: "pending" });
-    setTitle("");
-    fetchTasks();
-  };
 
   const deleteTask = async (id: number) => {
     await api.delete(`/tasks/${id}`);
