@@ -13,6 +13,8 @@ interface Task {
 const Dashboard = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [title, setTitle] = useState("");
+
+  const [showPop, setShowPop] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -24,6 +26,28 @@ const Dashboard = () => {
   useEffect(() => {
     fetchTasks();
   }, []);
+
+  const handleAddClick = () => {
+    if (!title.trim()) return;
+    setShowPop(true);
+  };
+
+  const confirmAddTask = async () => {
+    await api.post('/tasks', {title, status: 'pending' });
+    setTitle('');
+    setShowPop(false);
+    fetchTasks();
+  };
+
+  const cancelAddTask = () => {
+    setShowPop(false);
+  };
+
+  const deleteTask = sync (id: number) => {
+    await api.delete(`/tasks/${id}`);
+    fetchTasks();
+  };
+  
 
   const addTask = async () => {
     if (!title) return;
