@@ -80,7 +80,7 @@ const Dashboard = () => {
           placeholder="New Task Title"
         />
         <button
-          onClick={addTask}
+          onClick={handleAddClick}
           className="bg-green-600 text-white px-4 py-2 rounded"
         >
           Add
@@ -106,6 +106,20 @@ const Dashboard = () => {
           </li>
         ))}
       </ul>
+      {showPop && (
+      <div className ="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+        <div classname="bg-white p-6 rounded-lg shadow-xl w-80 text-center animate-bounce-in">
+          <h3 className="text-xl font-bold mb-4">Confirm Task</h3>
+          <p className="text-gray-600 mb-6">Are you sure you want to add "{title}"?</p>
+
+          <div className="flex justify-center gap-4">
+            <button onClick={cancelAddTask} className="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400 transition">No</button>
+            <button onClick={confirmAddTask} className="bg-blue-600 text-ehite px-4 py-2 rounded hover:bg-blue-700 transition">Yes</button>
+
+          </div>
+        </div>
+      </div>
+      )}
     </div>
   );
 };
